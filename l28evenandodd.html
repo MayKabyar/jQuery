@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Even and Odd Method</title>
+	<style type="text/css">
+		
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			flex-direction: column;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div>
+		
+		<div class=".box square">DIV 1 , index no 0</div>
+		<hr/>
+		<div class=".box square">DIV 1 , index no 0</div>
+		<hr/>
+		<div class=".box square">DIV 1 , index no 0</div>
+
+	</div>
+	
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			console.log('hi');
+		});
+
+
+		// odd()
+		$('#oddbtn').click(function(){
+			$('.box').odd().css('background-color','grey');
+		});
+
+
+		// slice(start,stop)
+
+		$('#slcbtn').click(function(){
+
+		})
+
+
+	</script>
+
+</body>
+</html>
