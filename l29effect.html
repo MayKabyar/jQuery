@@ -10,6 +10,8 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			flex-direction: column;
 		}
 
 		.container{
@@ -17,6 +19,11 @@
 			width: 600px;
 			background: #f4f4f4;
 			padding: 10px 30px;
+		}
+
+		.box{
+			width: 150px;
+			height: 300px;
 		}
 
 		.square1{
@@ -61,36 +68,39 @@
 
 	</style>
 </head>
-<body>
-
-	<div>	
+<body>	
 
 	<div class="container">
 		
-		<div class="square1">1</div>
-		<div class="square2">2</div>
-		<div class="square3">3</div>
-		<div class="square4">4</div>
-		<div class="square5">5</div>
+		<div class="box square1">1</div>
+		<div class="box square2">2</div>
+		<div class="box square3">3</div>
+		<div class="box square4">4</div>
+		<div class="box square5">5</div>
 
 	</div>
 
-	<button type='button' id="#hidebtn">Hide</button>
-	<button type='button' id="#showbtn">Show</button>
-	<button type='button' id="#fdoutbtn">fadeOut</button>
-	<button type='button' id="#fdinbtn">fadeIn</button>
-	<button type='button' id="#fdtgbtn">fadeToggle</button>
-	<button type='button' id="#fdtobtn">fadeTo</button>
-	<button type='button' id="#sldupbtn">slideUp</button>
-	<button type='button' id="#slddownbtn">slideDown</button>
-	<button type='button' id="#sldtgbtn">slideToggle</button>
-	<button type='button' id="#anibtn">animate</button>
-	<button type='button' id="#dlybtn">Delay</button>
-	<button type='button' id="#clickmebtn">Click Me</button>
-	<button type='button' id="#stopbtn">Stop</button>
-	<button type='button' id="#dlybtn">Delay</button>
-	<button type='button' id="#dqbtn">Dequeue</button>
-	<button type='button' id="#dlybtn">Clear Queue</button>
+	<div class="control">
+
+	<button type='button' id="hidebtn">Hide</button>
+	<button type='button' id="showbtn">Show</button>
+	<button type='button' id="togglebtn">Toggle</button>
+	<button type='button' id="fdoutbtn">fadeOut</button>
+	<button type='button' id="fdinbtn">fadeIn</button>
+	<button type='button' id="fdtgbtn">fadeToggle</button>
+	<button type='button' id="fdtobtn">fadeTo</button>
+	<button type='button' id="sldupbtn">slideUp</button>
+	<button type='button' id="slddownbtn">slideDown</button>
+	<button type='button' id="sldtgbtn">slideToggle</button>
+	<button type='button' id="anibtn">animate</button>
+	<button type="button" id="dlybtn">Delay</button>
+    <button type="button" id="clickmebtn">Click Me</button>
+    <button type="button" id="stopbtn">Stop</button>
+    <button type="button" id="stoptruebtn">Stop(ture)</button>
+    <button type="button" id="finishbtn">Finish</button>
+   	<button type="button" id="dqbtn">Dequeue</button>
+    <button type="button" id="cqbtn">Clear Queue</button>
+
 
 
 	</div>
@@ -99,8 +109,9 @@
 	<script type="text/javascript">
 		
 		$(document).ready(function(){
-			// console.log('hi');
+			console.log('hi');
 
+			// (i) Display Effects
 
 			// hide
 
@@ -109,21 +120,27 @@
 			// $(selector).hide(speed,callback);
 
 			$('#hidebtn').click(function(){
-				console.log('hi');
+				// console.log('hi');
 
-				// $('.square1').hide();
+				$('.square1').hide();
 				// $('.square1,.square3').hide();
 
 				// start with 0 index
 				// $('.box').even().hide();
-				// $('.box').end().hide();
+				// $('.box').odd().hide();
 
 				// 1s = 1000ms
-				// $('.square1').hide(1000,function(){
-				// 	// $('.square1').hide(1500);
-				// 	$('.square2,.square3').hide(1500,function(){
+				// $('.square1').hide(1000);
+				// $('.square1').hide('slow');
 
+				
+				// $('.square1').hide(1000,function(){
+				//  	$('.square2').hide(1500);
+				// 		$('.square2,.square3').hide(1500,function(){
+				// 			$('.square4,.square5').hide(2000);
+				// 		});
 				// 	});
+
 				});
 
 				// show
@@ -133,9 +150,9 @@
 			// $(selector).show(speed,callback);
 
 			$('#showbtn').click(function(){
-				console.log('hi');
+				// console.log('hi');
 
-				// $('.square1').show();
+				$('.square1').show();
 				// $('.square1,.square3').show();
 
 				// start with 0 index
@@ -146,7 +163,7 @@
 				// $('.square1').show(1000,function(){
 				// 	// $('.square1').show(1500);
 				// 	$('.square2,.square3').show(1500,function(){
-
+				// 		$('.square4,.square5').show(2000);
 				// 	});
 				// });
 
@@ -188,7 +205,7 @@
 
 			$('#fdoutbtn').click(function(){
 
-				// $('.square1').fadeOut();
+				$('.square1').fadeOut();
 				// $('.square1,.square3').fadeOut();
 
 				// start with 0 index
@@ -199,9 +216,9 @@
 				// $('.square1').fadeOut(1000);
 				// $('.square1').fadeOut('slow');
 
-				$('.square1').fadeOut(1000,function(){
-					$('.square1').fadeOut(1500);
-				});
+				// $('.square1').fadeOut(1000,function(){
+				// 	$('.square1').fadeOut(1500);
+				// });
 
 			});
 
@@ -224,7 +241,7 @@
 				// $('.square1').fadeIn(1000);
 				// $('.square1').fadeIn('slow');
 
-				$('.square1').fadeIn(1000,function(){
+				$('.square1').fadeIn(2000,function(){
 					$('.square1').fadeIn(1500);
 				});
 
@@ -238,7 +255,7 @@
 
 			$('#fdtgbtn').click(function(){
 
-				// $('.square1').fadeToggle();
+				$('.square1').fadeToggle();
 				// $('.square1,.square3').fadeToggle();
 
 				// start with 0 index
@@ -249,9 +266,9 @@
 				// $('.square1').fadeToggle(1000);
 				// $('.square1').fadeToggle('slow');
 
-				$('.square1').fadeToggle(1000,function(){
-					$('.square1').fadeToggle(1500);
-				});
+				// $('.square1').fadeToggle(1000,function(){
+				// 	$('.square1').fadeToggle(1500);
+				// });
 
 			});
 
@@ -262,21 +279,21 @@
 			// $(selector).fadeTo(speed,callback);
 
 			$('#fdtobtn').click(function(){
-
+				// console.log('hey');
 				// $('.square1').fadeTo();
 				// $('.square1,.square3').fadeTo();
 
 				// start with 0 index
 				// $('.box').even().fadeTo();
-				// $('.box').end().fadeTo();
+				// $('.box').odd().fadeTo();
 
 				// 1s = 1000ms
-				// $('.square1').fadeTo(1000);
+				$('.square1').fadeTo(1000);
 				// $('.square1').fadeTo('slow');
 
-				$('.square1').fadeTo(1000,function(){
-					$('.square1').fadeTo(1500);
-				});
+				// $('.square1').fadeTo(1000,function(){
+				// 	$('.square1').fadeTo(1500);
+				// });
 
 			});
 
@@ -290,7 +307,7 @@
 
 			$('#sldupbtn').click(function(){
 
-				// $('.square1').slideUp();
+				$('.square1').slideUp();
 				// $('.square1,.square3').slideUp();
 
 				// start with 0 index
@@ -301,9 +318,9 @@
 				// $('.square1').slideUp(1000);
 				// $('.square1').slideUp('slow');
 
-				$('.square1').slideUp(1000,function(){
-					$('.square2').slideUp(1500);
-				});
+				// $('.square1').slideUp(1000,function(){
+				// 	$('.square2').slideUp(1500);
+				// });
 
 			});
 
@@ -315,7 +332,7 @@
 
 			$('#slddownbtn').click(function(){
 
-				// $('.square1').slideDown();
+				$('.square1').slideDown();
 				// $('.square1,.square3').slideDown();
 
 				// start with 0 index
@@ -326,9 +343,9 @@
 				// $('.square1').slideDown(1000);
 				// $('.square1').slideDown('slow');
 
-				$('.square1').slideDown(1000,function(){
-					$('.square2').slideDown(1500);
-				});
+				// $('.square1').slideDown(1000,function(){
+				// 	$('.square2').slideDown(1500);
+				// });
 
 			});
 
@@ -338,9 +355,9 @@
 			// $(selector).slideToggle(speed);
 			// $(selector).slideToggle(speed,callback);
 
-			$('#slddownbtn').click(function(){
+			$('#sldtgbtn ').click(function(){
 
-				// $('.square1').slideToggle();
+				$('.square1').slideToggle();
 				// $('.square1,.square3').slideToggle();
 
 				// start with 0 index
@@ -351,9 +368,9 @@
 				// $('.square1').slideToggle(1000);
 				// $('.square1').slideToggle('slow');
 
-				$('.square1').slideToggle(1000,function(){
-					$('.square2').slideToggle(1500);
-				});
+				// $('.square1').slideToggle(1000,function(){
+				// 	$('.square2').slideToggle(1500);
+				// });
 
 			});
 
@@ -368,7 +385,7 @@
 			// $(selector).animate(speed,callback);
 
 			$('#anibtn').click(function(){
-				console.log('hi');
+				// console.log('hi');
 
 				// $('.square1').animate({'height':'50%'});
 				// $('.square1,.square3').animate({'height':'50%'});
@@ -392,7 +409,7 @@
 			$('#dlybtn').click(function(){
 
 				// $('.square1').fadeOut();
-				$('.square1').delay('slow').fadeOut();
+				// $('.square1').delay('slow').fadeOut();
 				// $('.square1').delay(2000).fadeOut();
 
 				// $('.square1').delay(2000).fadeOut(3000);
@@ -412,10 +429,10 @@
 				// });
 
 				var sq1 = $('.square1');
-				// sq1.animate({'height':1000},'slow');
-				// sq1.animate({'height':2000},'slow');
-				// sq1.animate({'height':3000},'slow');
-				// sq1.animate({'height':3000},'slow');
+				sq1.animate({'height':1000},'slow');
+				sq1.animate({'height':2000},'slow');
+				sq1.animate({'height':3000},'slow');
+				sq1.animate({'height':3000},'slow');
 				sq1.animate({'height':150},'slow');
 
 				console.log(sq1.queue());
@@ -425,8 +442,26 @@
 
 			$('#clickmebtn').click(function(){
 				$('.square1').html('<i>I am ready to start now</i>').animate({'width':500},2000);
-				// $('.square1').html('<i>Ohh, did you click stop btn ! </i>');
+				$('.square1').html('<i>Ohh, did you click stop btn ! </i>').animate({ "width": 100 }, 2000);
 			});
+
+
+
+			// stop() & stop(true)
+            $("#stopbtn").click(function () {
+                $(".square1").stop(); // animate 1 ခုကိုကျော် ပြီး ဆက်အလုပ်လုပ်မယ်
+            });
+
+            $("#stoptruebtn").click(function () {
+                $(".square1").stop(true); // ချက်ချင်းရက်သွားမယ်
+            });
+
+
+            // finish()
+            $("#finishbtn").click(function () {
+                $(".square1").finish(); // animate အားလုံးကိုကျော်ပြီး နောက်ဆုံး animate ကိုပဲ အလုပ်လုပ်သွားမယ်။
+            })
+
 
 
 			// dequeue()
@@ -442,18 +477,26 @@
 			// div5.animate({width:200,height:200},'slow');
 			// div5.css('background-color','steelblue');
 
-			div5.animate({width:300,height:300},'slow');
-			div5.animate({width:200,height:200},'slow');
-			div5.deque(function(){
-				div5.css('background-color','steelblue');
-			});
+			// div5.animate({width:300,height:300},'slow');
+			// div5.animate({width:200,height:200},'slow');
+			// div5.deque(function(){
+			// 	div5.css('background-color','steelblue');
+			// });
+
+			// div5.animate({width:300,height:300},'slow');
+			// div5.animate({width:200,height:200},'slow');
+			// div5.queue(function(){
+			// 	div5.css('background-color','steelblue');
+			// 	  div5.deque();
+			// });
 
 			div5.animate({width:300,height:300},'slow');
 			div5.animate({width:200,height:200},'slow');
-			div5.deque(function(){
+			div5.queue(function(){
 				div5.css('background-color','steelblue');
-				div5.deque();
+				div5.dequeue();
 			});
+
 				div5.slideUp('slow');
 				div5.slideDown('slow');
 
@@ -461,10 +504,14 @@
 
 			});
 
-			 clearQueue()
+			 // clearQueue()
+
+			 $('#cqbtn').click(function(){
+			 	$('.square1').clearQueue();
+			 });
 			
 
-			});
+		});
 
 			
 

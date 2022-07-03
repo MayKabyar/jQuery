@@ -159,8 +159,25 @@
 			// 	$('.box:nth-child(even)').css('background','grey');
 			// });
 
-			$('.square1').click(function(){
-				$('.box:nth-child(2n+1)').css('background','silver');
+			// $('.square1').click(function(){
+			// 	$('.box:nth-child(2n+1)').css('background','silver');
+			// });
+
+			// next()
+			// $('.container').click(function(){
+			// 	$(this).next().css({
+			// 		'background-color':'red',
+			// 		'color':'#fff'
+			// 	});
+			// });
+
+			// prev()
+			$('.container').click(function(){
+				$(this).prev().css({
+					'background-color':'green',
+					'color':'#fff',
+					'padding':'20px'
+				});
 			});
 
 
