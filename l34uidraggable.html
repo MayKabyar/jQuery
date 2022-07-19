@@ -12,6 +12,13 @@
 			justify-content: center;
 			align-items: center;
 		}
+
+		.container{
+			width: 900px;
+			height: 700px;
+			background-color: #f4f4f4;
+			box-shadow: 10px 10px 5px #777;
+		}
 		
 		.box{
 			width: 250px;
@@ -30,10 +37,20 @@
 
 	<div class="container">
 		
-		<div id="drapme" class="box">
+		<div id="dragme" class="box">
+			<p>Drap Me wherever you want !!!</p>			
+		</div>
 
-			<p>Drap Me wherever you want !!!</p>
-			
+		<div id="dragmex" class="box">
+			<p>Drap Me on X !!!</p>			
+		</div>
+
+		<div id="dragmey" class="box">
+			<p>Drap Me on Y !!!</p>			
+		</div>
+
+		<div id="dragmeoncnt" class="box">
+			<p>Drap Me on Conatainer area !!!</p>			
 		</div>
 
 	</div>
@@ -45,7 +62,60 @@
 		$(document).ready(function(){
 			// console.log('hi');
 
-			$('#drapme').draggable();
+			// $('#drapme').draggable();
+
+			// $('#dragme').draggable({
+			// 	// cursor:'grab',
+			// 	// cursor:'move',
+			// 	cursor:'crosshair',
+			// });
+
+			$('#dragmex').draggable({
+				axis:'x'
+			});
+
+			$('#dragmey').draggable({
+				axis:'y'
+			});
+
+			// $('#dragmeoncnt').draggable({
+			// 	containment:'.container'
+			// });
+
+			// $('#dragme,#dragmeoncnt').draggable({
+			// 	cancel:'#dragme'
+			// });
+
+			$('#dragme').draggable({
+				
+				start:function(){
+					$(this).css('background-color','violet');
+				},
+
+				drag:function(){
+					$(this).text('Element is moving...');
+				},
+
+				stop:function(){
+					$(this).text('Element stopped !!!');
+				},
+
+				// revert:true,
+				// revertDuration:1000,
+
+				revert:function(){
+					$(this).css('background-color','orange');
+					return true
+				},
+
+				revertDuration:1000,  // 1s = 1000
+
+				// grid:[0,100],
+				// grid:[100,0],
+				grid:[100,200],
+
+
+			});
 
 		});
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI dialog Method</title>
+	<link rel="stylesheet" type="text/css" href="./libs/jquery-ui-1.13.1/jquery-ui.min.css">
+</head>
+<body>
+
+	<div class="dbox" title="How to use jQuery Ui ?">
+		<p>Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+	</div>
+
+	<button class="btn">Click Me</button>
+	<button class="tgbtn">Click Me</button>
+
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			// console.log('hi');
+			
+
+			$('.dbox').dialog({
+				autoOpen:false,
+				width:400,
+				height:200,
+				title:'How to use jQuery UI !!!',
+				hide:'slideUp',   // slide , slideUp
+				show:'slideDown',  // slide , slideDown
+				// position:{
+					// at:'left',
+					// at:'left top',
+					// at:'left bottom',
+					// at:'right',
+					// at:'right top',
+					// at:'right bottom',
+					// at:'top',
+					// at:'bottom'
+				// }
+			}).css({
+				'background-color':'grey',
+				'color':'#fff'
+			});
+
+			// for box (border)
+			$('.dbox').parent().css('background-color','orange');
+
+			$('.dbox').siblings('div:nth-of-type(1)').css('background-color','skyblue');
+
+			$('.dbox').siblings('div:nth-of-type(1)').find('button').css('background-color','yellow');
+
+
+			// for Click Me button
+			$('.btn').click(function(){
+				$('.dbox').dialog({
+					autoOpen:true
+				});
+
+			});
+
+
+			$('.btn').click(function(){
+				$('.dbox').dialog('open');
+			});
+
+
+			$('.tgbtn').click(function(){
+				$('.dbox').dialog('isOpen') === true ? $('.dbox').dialog('close') : $('.dbox').dialog('open')
+			});
+
+
+
+		});
+
+	</script>
+	
+</body>
+</html>
